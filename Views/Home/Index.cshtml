@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        @if (Session["UserName"] == null)
+    {
+        <div class="row">
+
+            <div class="col-md-12 p-2 h1 alert-primary">Welcome Please Login</div>
+        </div>
+
+        <form action="/Home/Index" method="post">
+            <div class="row pl-4">
+                <div class="col-md-3 p-1">
+                    <h4>User Name : </h4>
+                </div>
+                <div class="col-md-6 p-1">
+                    <input id="userName" name="userName" type="text" value="">
+                </div>
+            </div>
+            <div class="row pl-4">
+                <div class="col-md-3 p-1">
+                    <h4>Password : </h4>
+                </div>
+                <div class="col-md-6 p-1">
+                    <input id="userPass" name="userPass" type="text" value="">
+                </div>
+            </div>
+            <div class="row pl-4">
+                <div class="col-md-12 p-1">
+                    <input type="submit" value="send">
+                </div>
+            </div>
+        </form>
+}
+else
+{
+    <div class="row">
+
+        <div class="col-md-12 p-2 h1 alert-primary">Welcome @Session["UserName"].ToString()</div>
+    </div>
+
+
+    <div class="row pl-4">
+        <div class="col-md-3 p-1">
+            <h4>User Name : </h4>
+        </div>
+        <div class="col-md-6 p-1">
+            @Session["UserName"].ToString()
+        </div>
+    </div>
+   
+
+
+
+}
+
+
+
+    </div>
+</body>
+</html>
